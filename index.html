@@ -8,18 +8,20 @@
 
   <body>
     <h1>Random Number Game</h1>
-    <div id="set-number">
+    <form id="set-number">
       <span>Generate a number between 0 and</span>
       <input type="number" placeholder="Set a number" />
-    </div>
+    </form>
     <p></p>
     <div id="guess-number">
       Guess the number:
       <input type="number" />
       <button>play!</button>
     </div>
-    <div>You chose:<span></span> the machine chose:<span></span></div>
-    <span class="hidden">You lost!</span>
+    <div class="show">
+      <div>You chose:<span></span> the machine chose:<span></span></div>
+      <span class="hidden">You lost!</span>
+    </div>
 
     <script src="src/index.js"></script>
   </body>
