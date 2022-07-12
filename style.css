@@ -1,0 +1,22 @@
+.hidden {
+  display: none;
+}
+
+.lost-won {
+  display: none;
+}
+
+#set-number span {
+  font-weight: 700;
+  font-size: large;
+}
+
+#lost {
+  font-weight: 700;
+  font-size: large;
+}
+
+#won {
+  font-weight: 700;
+  font-size: large;
+}

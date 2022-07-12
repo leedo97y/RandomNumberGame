@@ -3,23 +3,34 @@ const inputSetNumber = document.querySelector("#set-number input");
 const guessForm = document.querySelector("#guess-number");
 const guessInput = document.querySelector("#guess-number input");
 
-function handleSetNumber(event) {
-  //event.preventDefault();
-  const value = event.target.value;
-  console.log(value);
-}
+const resultText = document.querySelector("#result-text");
+const valueText = document.querySelector("#value-text");
+const lost = document.querySelector("#lost");
+const won = document.querySelector("#won");
 
 function handlePlayButton(event) {
   event.preventDefault();
-  const guessValue = guessInput.value;
-  console.log(guessValue);
+  resultText.classList.add("hidden");
+  lost.classList.add("lost-won");
+  won.classList.add("lost-won");
 
-  if (guessValue === inputSetNumber.value) {
-    console.log("You won!");
-  } else if (guessValue !== inputSetNumber.value) {
-    console.log("you lost!");
+  const guessValue = parseInt(guessInput.value);
+
+  const settedValue = inputSetNumber.value;
+  const randomValue = Math.ceil(Math.random() * settedValue);
+
+  valueText.innerText = `You chose: ${guessValue}, the machine chose: ${randomValue}`;
+
+  if (guessValue === randomValue) {
+    resultText.classList.remove("hidden");
+    won.classList.remove("lost-won");
+    won.innerText = "You won!";
+  } else if (guessValue !== randomValue) {
+    resultText.classList.remove("hidden");
+    won.classList.add("lost-won");
+    lost.classList.remove("lost-won");
+    lost.innerText = "You lost!";
   }
 }
 
-inputSetNumber.addEventListener("blur", handleSetNumber);
 guessForm.addEventListener("submit", handlePlayButton);
